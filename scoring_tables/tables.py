@@ -9,8 +9,8 @@ def tables(pages):
 
 middle_distance = tables('39-66')
 distance = tables('69-96')
-
 combined_distance = pd.merge(middle_distance, distance, how='inner', on=['Points', 'Points'])
 
-print(combined_distance.head())
+combined_distance['Points'] = combined_distance['Points'].astype('string')
+print(combined_distance.loc[combined_distance['Points']=='1270'])
 
